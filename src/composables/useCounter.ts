@@ -33,7 +33,9 @@ export function useCounter(options:UseCounterOptions = {}){
     let result = {
         count:readonly(count),
         doIncrement,
-        doDecrement
+        doDecrement,
+        canIncrement,
+        canDecrement
     }
     return result;
 

@@ -1,13 +1,25 @@
 <script setup lang="ts">
 import {useCounter} from "../composables/useCounter";
 
-const props = withDefaults(defineProps<{initialValue:number}>(),{initialValue:0})
-const counter = useCounter({initialValue:props.initialValue});
+const props = withDefaults(defineProps<{initialValue:number, maxValue?:number, minValue?:number}>(),{initialValue:0})
+const {
+  count,
+  doIncrement,
+  doDecrement,
+  canIncrement,
+  canDecrement
+} = useCounter({
+  initialValue:props.initialValue,
+  maxValue:props.maxValue,
+  minValue:props.minValue
+});
 
 </script>
 
 <template>
-  <div data-test="counter-value">{{counter.count}}</div>
+  <button :disabled="!canIncrement" data-test="increment-button" @click="doIncrement()">PLUS</button>
+  <div data-test="counter-value">{{count}}</div>
+  <button :disabled="!canDecrement" data-test="decrement-button" @click="doDecrement()">MINUS</button>
 
 </template>
 
