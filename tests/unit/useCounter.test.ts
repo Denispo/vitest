@@ -22,8 +22,8 @@ describe('useCounter()',()=>{
         expect(count.value).toEqual(4)
     })
     test('can not decrement below min value',()=>{
-        const {doDecrement, count} = useCounter({initialValue:5, minValue:5});
+        const {doDecrement, count} = useCounter({initialValue:8, minValue:8});
         doDecrement();
-        expect(count.value).toEqual(5);
+        expect(count.value).toEqual(8);
     })
 })
