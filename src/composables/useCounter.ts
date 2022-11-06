@@ -8,19 +8,18 @@ export interface UseCounterOptions {
 
 export function useCounter(options:UseCounterOptions = {}){
     const count = ref<number>(options.initialValue ?? 0);
-    const maxValue = options.maxValue;
-    const minValue = options.minValue;
+
     const doIncrement = () => {
         count.value ++;
-        if (typeof maxValue == "number" && count.value > maxValue){
-            count.value = maxValue;
+        if (typeof options.maxValue == "number" && count.value > options.maxValue){
+            count.value = options.maxValue;
         }
     }
 
     const doDecrement = () => {
         count.value --;
-        if (typeof minValue == "number" && count.value < minValue){
-            count.value = minValue;
+        if (typeof options.minValue == "number" && count.value < options.minValue){
+            count.value = options.minValue;
         }
     }
 
