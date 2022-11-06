@@ -1,4 +1,4 @@
-import {readonly, ref} from "vue";
+import {computed, readonly, ref} from "vue";
 
 export interface UseCounterOptions {
     initialValue?:number,
@@ -9,17 +9,24 @@ export interface UseCounterOptions {
 export function useCounter(options:UseCounterOptions = {}){
     const count = ref<number>(options.initialValue ?? 0);
 
+    const canIncrement = computed(() => {
+        return typeof options.maxValue !== "number" || count.value < options.maxValue;
+    })
+
+    const canDecrement = computed(() => {
+        return typeof options.minValue !== "number" || count.value > options.minValue;
+    })
+
+
     const doIncrement = () => {
-        count.value ++;
-        if (typeof options.maxValue == "number" && count.value > options.maxValue){
-            count.value = options.maxValue;
+        if (canIncrement.value){
+            count.value ++;
         }
     }
 
     const doDecrement = () => {
-        count.value --;
-        if (typeof options.minValue == "number" && count.value < options.minValue){
-            count.value = options.minValue;
+        if (canDecrement.value) {
+            count.value --;
         }
     }
 
