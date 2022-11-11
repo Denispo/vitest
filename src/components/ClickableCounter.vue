@@ -22,9 +22,9 @@ const counter = useCounter({initialValue:props.initialValue,maxValue:props.maxVa
   <button :disabled="!canDecrement" data-test="decrement-button" @click="doDecrement()">MINUS</button>
 
 <!--
-  <button :disabled="!counter.canIncrement" @click="counter.doIncrement()">PLUS</button>
+  <button :disabled="!counter.canIncrement" data-test="increment-button" @click="counter.doIncrement()">PLUS</button>
   <div data-test="counter-value">{{counter.count}}</div>
-  <button :disabled="!counter.canDecrement" @click="counter.doDecrement()">MINUS</button>
+  <button :disabled="!counter.canDecrement" data-test="decrement-button" @click="counter.doDecrement()">MINUS</button>
 -->
 
 </template>
