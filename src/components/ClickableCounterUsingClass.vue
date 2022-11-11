@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useCounterClass} from "../composables/useCounterClass";
 
-const props = withDefaults(defineProps<{initialValue:number, maxValue?:number, minValue?:number}>(),{initialValue:0})
+const props = withDefaults(defineProps<{initialValue?:number, maxValue?:number, minValue?:number}>(),{initialValue:0})
 
 const counter = useCounterClass({initialValue:props.initialValue, maxValue:props.maxValue});
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import {useCounter} from "../composables/useCounter";
 
-const props = withDefaults(defineProps<{initialValue:number, maxValue?:number, minValue?:number}>(),{initialValue:0})
+const props = withDefaults(defineProps<{initialValue?:number, maxValue?:number, minValue?:number}>(),{initialValue:0})
 const {
   count,
   doIncrement,
