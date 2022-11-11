@@ -1,4 +1,4 @@
-import {readonly, ref} from "vue";
+import {computed, readonly, ref} from "vue";
 
 export interface UseCounterOptions {
     initialValue?:number,
@@ -18,15 +18,23 @@ class Counter {
         if (typeof this.options.initialValue === 'number') {
             this.count.value = this.options.initialValue;
         }
+
+        setTimeout(()=>{
+           // this.count.value = this.options.minValue ?? 0;
+        },5000);
     }
 
     getCount() {
         return readonly(this.count);
     }
 
-    canIncrement() {
+    canIncrement = computed(()=>{
+        console.log(this.count.value);
         return typeof this.options.maxValue !== "number" || this.count.value < this.options.maxValue;
-    }
+    });
+/*    canIncrement() {
+
+    }*/
 
     canDecrement() {
         return typeof this.options.minValue !== "number" || this.count.value > this.options.minValue;
@@ -34,7 +42,7 @@ class Counter {
 
 
     doIncrement() {
-        if (this.canIncrement()) {
+        if (this.canIncrement.value) {
             this.count.value++;
         }
     }

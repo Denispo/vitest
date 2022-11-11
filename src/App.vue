@@ -5,11 +5,14 @@ import ClickableCounterUsingClass from "./components/ClickableCounterUsingClass.
 </script>
 
 <template>
-  <clickable-counter></clickable-counter>
+<!--
 
+  <clickable-counter :min-value="-5" :max-value="5"></clickable-counter>
+
+-->
   <div></div>
 
-  <clickable-counter-using-class></clickable-counter-using-class>
+  <clickable-counter-using-class :max-value="5" :min-value="-5"></clickable-counter-using-class>
 
 </template>
 
