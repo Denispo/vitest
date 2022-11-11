@@ -1,11 +1,15 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+
+import ClickableCounter from "./components/ClickableCounter.vue";
+import ClickableCounterUsingClass from "./components/ClickableCounterUsingClass.vue";
 </script>
 
 <template>
+  <clickable-counter></clickable-counter>
 
-  <HelloWorld/>
+  <div></div>
+
+  <clickable-counter-using-class></clickable-counter-using-class>
+
 </template>
 

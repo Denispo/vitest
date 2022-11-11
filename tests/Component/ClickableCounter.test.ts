@@ -15,7 +15,7 @@ describe('Component: ClickableCounter',()=>{
         expect(counterValue.text()).toEqual('10');
     });
 
-    test('Clicking to Increment button increment counter',async ()=>{
+    test('Clicking on Increment button increment counter',async ()=>{
         const wrapper = mount(ClickableCounter,{props:{initialValue: 5}});
         const counterValue = wrapper.get('[data-test="counter-value"]')
         const increaseButton = wrapper.get('[data-test="increment-button"]');
@@ -23,7 +23,7 @@ describe('Component: ClickableCounter',()=>{
         expect(counterValue.text()).toEqual('6');
     })
 
-    test('Clicking to Decrement button decrement counter',async ()=>{
+    test('Clicking on Decrement button decrement counter',async ()=>{
         const wrapper = mount(ClickableCounter,{props:{initialValue: 5}});
         const counterValue = wrapper.get('[data-test="counter-value"]')
         const increaseButton = wrapper.get('[data-test="decrement-button"]');

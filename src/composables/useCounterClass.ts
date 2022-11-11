@@ -9,10 +9,14 @@ export interface UseCounterOptions {
 class Counter {
 
     private count = ref(0);
+    private options:UseCounterOptions
 
-    constructor(private options:UseCounterOptions) {
-        if (typeof options.initialValue === 'number') {
-            this.count.value = options.initialValue;
+    constructor(options:UseCounterOptions) {
+        this.options = options;
+
+        //if (typeof this.options.initialValue !== 'undefined'){
+        if (typeof this.options.initialValue === 'number') {
+            this.count.value = this.options.initialValue;
         }
     }
 
